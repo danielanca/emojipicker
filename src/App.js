@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Window from "./components/Window/Window";
+import ChatForm from "./components/Interface/ChatForm";
+import { useState } from "react";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [emojiBuffer, setEmojiBuffer] = useState("");
+	function EmojiBufferHandler(emoji) {
+		setEmojiBuffer(emoji);
+		console.log("App got:" + emoji + "counter:" + emoji.counter);
+	}
+	return (
+		<div className="App">
+			<header className="App-header">
+				<ChatForm emojiParameters={emojiBuffer} />
+				<Window emojiBuffer={EmojiBufferHandler} />
+			</header>
+		</div>
+	);
 }
 
 export default App;

@@ -1,0 +1,26 @@
+.iconSize {
+	font-size: 37px;
+}
+
+.iconSize:hover {
+	padding: 0px;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 41px;
+}
+ul {
+	list-style-position: inside;
+	padding-left: 0;
+	width: 100%;
+	overflow: scroll;
+	height: 255px;
+	overflow-x: hidden;
+}
+
+.iconContainer {
+	margin-left: 4px;
+	margin-right: 6px;
+	width: 62px;
+	height: 40px;
+	margin-top: 8px;
+}

@@ -1,0 +1,25 @@
+.ten {
+	width: 10%;
+}
+.icon {
+	border: 2 solid green;
+	width: 30px;
+	height: 30px;
+}
+.picCss {
+	width: 100px;
+	height: 70px;
+}
+
+.addBrightness {
+	filter: invert(50%);
+}
+
+.addBrightness:hover {
+	filter: invert(100%);
+	cursor: pointer;
+}
+
+.active {
+	filter: invert(100%);
+}

@@ -1,0 +1,19 @@
+.inputspace {
+	width: 100%;
+	height: auto;
+}
+
+.labelItem {
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	border-radius: 13px;
+}
+
+input {
+	color: gray;
+}
+
+input:focus-visible {
+	color: white;
+}

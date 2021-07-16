@@ -1,0 +1,20 @@
+.windowCard {
+	height: 339px;
+	width: 39vw;
+	border: 3px solid #595c79;
+	border-radius: 20px;
+	position: absolute;
+	right: 22px;
+	bottom: 16px;
+}
+
+.lightTheme {
+	background-color: #1f252a;
+	border-radius: 20px 20px 0px 0px;
+}
+.gallerySection {
+	height: 100%;
+	/* width: 100%; */
+	background-color: #212721;
+	display: block;
+}

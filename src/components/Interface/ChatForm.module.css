@@ -1,0 +1,13 @@
+.ChatSection {
+	border: orangered solid 3px;
+	height: 100px;
+	width: 300px;
+}
+
+input {
+	color: black;
+}
+
+input:focus-visible {
+	color: black;
+}
