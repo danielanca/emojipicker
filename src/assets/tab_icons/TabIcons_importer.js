@@ -47,18 +47,21 @@ var TabIcons_importer = [
 		title: "flags",
 		description: "flags",
 	},
-	// {
-	// 	id: 9,
-	// 	src: require("../tab_icons/icons/dolphin.png"),
-	// 	title: "people",
-	// 	description: "people",
-	// },
+	{
+		id: 9,
+		src: require("../tab_icons/icons/recent.png"),
+		title: "recent",
+		description: "recent",
+	},
 	// {
 	// 	id: 10,
 	// 	src: require("../tab_icons/icons/bear-footprint.png"),
 	// 	title: "people",
 	// 	description: "people",
 	// },
+
+	// var dickbutt = []
+	// dickbutt = require("emoji.json");
 ];
 
 export default TabIcons_importer;

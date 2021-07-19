@@ -5,7 +5,7 @@ const IconItem = (props) => {
 	const [iconCount, seticonCount] = useState(0);
 	function setEmoji() {
 		let emoji = props.emoji;
-
+		console.log(emoji);
 		props.emojiPressed({ emoji, counter: iconCount });
 		let val = iconCount + 1;
 		seticonCount(val);
