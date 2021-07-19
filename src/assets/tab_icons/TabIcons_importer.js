@@ -53,12 +53,12 @@ var TabIcons_importer = [
 		title: "recent",
 		description: "recent",
 	},
-	// {
-	// 	id: 10,
-	// 	src: require("../tab_icons/icons/bear-footprint.png"),
-	// 	title: "people",
-	// 	description: "people",
-	// },
+	{
+		id: 10,
+		src: require("../tab_icons/icons/all.png"),
+		title: "all",
+		description: "all",
+	},
 
 	// var dickbutt = []
 	// dickbutt = require("emoji.json");

@@ -3,7 +3,8 @@ import classes from "../Window/Window.module.css";
 import IconTab_Interface from "../Interface/IconTab_Interface";
 import SearchField from "../Interface/SearchField";
 import IconDisplayer from "../Interface/IconDisplayer";
-import { useState } from "react";
+import IconsImporterHandler from "../Manager/IconsImporterHandler";
+import { useEffect, useState } from "react";
 const Window = (props) => {
 	const [tabSelected, setTabSelected] = useState("recent");
 	const [{ previous_State, current_State }, setOurState] = useState({
@@ -11,6 +12,7 @@ const Window = (props) => {
 		current_State: "recent",
 	});
 
+	var EmojiList;
 	function retrieve_data(STATE_TAB) {
 		setOurState({
 			previous_State: current_State,
@@ -23,14 +25,12 @@ const Window = (props) => {
 	}
 	function takeEmoji(theEmoji) {
 		props.emojiBuffer(theEmoji);
-		//also add in recent
-		//check what is the last ID
 
+		//save the EMOJI in localStorage
 		let emoji_added = false;
 		let emoji_ARRAY = [];
 		var ID_local = 0;
 		let storage_result = JSON.parse(localStorage.getItem("emojiDatabase"));
-
 		let { emoji, counter } = theEmoji;
 		if (storage_result != null && storage_result.length != 0) {
 			//if emoji found, increment
@@ -56,12 +56,30 @@ const Window = (props) => {
 			emoji_ARRAY.push(emojiBuffer);
 			localStorage.setItem("emojiDatabase", JSON.stringify(emoji_ARRAY));
 		}
+		//also add in recent
+		//check what is the last ID
 	}
 	function searchQuery(data) {
 		setTabSelected(data);
-
+		setOurState({
+			previous_State: current_State,
+			current_State: data,
+		});
 		// console.log("searchTabselected called" + tabSelected);
 	}
+	if (current_State === "recent" && previous_State === "recent") {
+	}
+	if (current_State === "recent" && previous_State != "recent") {
+		console.log("_______LOAD LOCAL STORAGE_____");
+		EmojiList = IconsImporterHandler(current_State);
+	} else {
+		console.log("_____LOAD  " + current_State + "  STATE");
+		EmojiList = IconsImporterHandler(current_State);
+	}
+	if (previous_State === "recent" && current_State != "recent") {
+		console.log("______-SAVE LOCAL STORAGE________");
+	}
+
 	return (
 		<div className={classes.windowCard}>
 			<div className="container-fluid">
@@ -78,6 +96,7 @@ const Window = (props) => {
 					<IconDisplayer
 						emojiPressed={takeEmoji}
 						displayParameters={current_State}
+						handTheList={EmojiList}
 					/>
 				</div>
 			</div>

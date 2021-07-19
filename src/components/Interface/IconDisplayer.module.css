@@ -35,3 +35,11 @@ li {
 ::-webkit-scrollbar-thumb:hover {
 	background: gray;
 }
+
+.categoryTitle {
+	color: wheat;
+}
+
+.categoryHeader {
+	width: 100%;
+}
