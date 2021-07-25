@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 const ChatFieldBar = (props) => {
 	const chatField = useRef("");
-	// const [emoji, setEmoji] = useState(null);
 	const [textField, settextField] = useState("");
 
 	useEffect(() => {

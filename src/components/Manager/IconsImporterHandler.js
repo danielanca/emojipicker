@@ -2,6 +2,7 @@ function IconsImporterHandler(IconTabSelected) {
 	const emojiDatabase = require("../../assets/emoji_pack/emoji.json");
 	var selectedEmojis = [];
 	var selectedIndex = 0;
+	const MAX_LOAD_LENGTH = 45;
 
 	if (IconTabSelected.includes("recent")) {
 		let filter_emoji = JSON.parse(localStorage.getItem("emojiDatabase"));
@@ -11,7 +12,7 @@ function IconsImporterHandler(IconTabSelected) {
 		filter_emoji.sort(function (a, b) {
 			return b.counter - a.counter;
 		});
-		for (var i = 0; i < filter_emoji.length; i++) {
+		for (var i = 0; i < MAX_LOAD_LENGTH; i++) {
 			selectedEmojis[i] = filter_emoji[i].emoji;
 		}
 	} else {

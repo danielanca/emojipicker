@@ -1,11 +1,8 @@
 import classes from "../Interface/SearchField.module.css";
 import SearchIcon from "./SearchIcon";
 import Search_Input from "./Search_Input";
-import IconsImporterHandler from "../Manager/IconsImporterHandler";
-const SearchField = (props) => {
-	var searchText;
-	console.log("Search field received:" + searchText);
 
+const SearchField = (props) => {
 	function SearchText_Handler(text) {
 		console.log("Received:" + text);
 

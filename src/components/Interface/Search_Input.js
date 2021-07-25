@@ -10,14 +10,9 @@ const Search_Input = (props) => {
 		props.searchBuffer(textField.current.value);
 	};
 
-	// useEffect(() => {
-	// 	console.log("Danutu:");
-	// }, [textField]);
-
 	function SubmitHandler(event) {
 		event.preventDefault();
 
-		// setIsEmpty(true);
 		props.searchData(textField.current.value);
 		textField.current.value = "";
 	}
@@ -25,7 +20,7 @@ const Search_Input = (props) => {
 		<form onSubmit={SubmitHandler} className={classes.inputspace}>
 			<input
 				onChange={handleChange}
-				className={classes.labelItem}
+				className={classes.labelItem + " " + classes.search_input}
 				type="text"
 				name="name"
 				ref={textField}

@@ -8,6 +8,10 @@
 	bottom: 16px;
 }
 
+.windowCard.popup {
+	transition: all 0.2s;
+}
+
 .lightTheme {
 	background-color: #1f252a;
 	border-radius: 20px 20px 0px 0px;

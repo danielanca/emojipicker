@@ -1,0 +1,23 @@
+.emojiButton {
+	filter: invert(65%);
+	background: transparent;
+	padding: 0;
+	border: none;
+	background: none;
+	margin: 5px;
+}
+.emojiButton:hover {
+	filter: invert(100%);
+}
+
+.attachmentButton {
+	filter: invert(65%);
+	background: transparent;
+	padding: 0;
+	border: none;
+	background: none;
+	margin: 5px;
+}
+.attachmentButton:hover {
+	filter: invert(100%);
+}

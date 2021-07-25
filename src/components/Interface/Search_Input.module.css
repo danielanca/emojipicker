@@ -10,10 +10,10 @@
 	border-radius: 13px;
 }
 
-input {
-	color: gray;
+.search_input {
+	color: yellow;
 }
 
-input:focus-visible {
-	color: white;
+.search_input:focus-visible {
+	color: yellow;
 }

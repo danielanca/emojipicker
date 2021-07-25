@@ -7,12 +7,11 @@ const IconTab_Interface = (props) => {
 	function IconTabClickedHandler(data) {
 		setIconActive(data);
 		props.IconTabClicked(data);
-		// console.log("IconTab Interface tells STATE ACTIVE:" + IconActive);
 	}
 
 	useEffect(() => {
-		console.log("IconTab Interface tells STATE ACTIVE:" + IconActive);
-	}, [IconActive]);
+		setIconActive(props.TabState);
+	}, [props.TabState]);
 	return (
 		<div>
 			{TabIcons_importer.map(({ id, title, src, description }) => (

@@ -3,25 +3,26 @@ import classes from "../Window/Window.module.css";
 import IconTab_Interface from "../Interface/IconTab_Interface";
 import SearchField from "../Interface/SearchField";
 import IconDisplayer from "../Interface/IconDisplayer";
-import IconsImporterHandler from "../Manager/IconsImporterHandler";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 const Window = (props) => {
 	const [tabSelected, setTabSelected] = useState("recent");
+	const [tabSelected_fromTAB, settabSelected_fromTAB] = useState("recent");
 	const [{ previous_State, current_State }, setOurState] = useState({
 		previous_State: "no",
 		current_State: "recent",
 	});
+	const [SearchBuffer, setSearchBuffer] = useState("");
 
-	var EmojiList;
-	function retrieve_data(STATE_TAB) {
+	function handle_tabOrder(STATE_ORDERED) {
+		settabSelected_fromTAB(STATE_ORDERED);
+	}
+	function handle_ListFocus(STATE_TAB) {
+		setTabSelected(STATE_TAB);
 		setOurState({
 			previous_State: current_State,
 			current_State: STATE_TAB,
 		});
-
-		if (STATE_TAB != tabSelected) {
-			setTabSelected(STATE_TAB);
-		}
 	}
 	function takeEmoji(theEmoji) {
 		props.emojiBuffer(theEmoji);
@@ -32,7 +33,7 @@ const Window = (props) => {
 		var ID_local = 0;
 		let storage_result = JSON.parse(localStorage.getItem("emojiDatabase"));
 		let { emoji, counter } = theEmoji;
-		if (storage_result != null && storage_result.length != 0) {
+		if (storage_result !== null && storage_result.length !== 0) {
 			//if emoji found, increment
 			storage_result.forEach((storage_emoji) => {
 				if (storage_emoji.emoji === emoji) {
@@ -60,33 +61,30 @@ const Window = (props) => {
 		//check what is the last ID
 	}
 	function searchQuery(data) {
-		setTabSelected(data);
-		setOurState({
-			previous_State: current_State,
-			current_State: data,
-		});
-		// console.log("searchTabselected called" + tabSelected);
-	}
-	if (current_State === "recent" && previous_State === "recent") {
-	}
-	if (current_State === "recent" && previous_State != "recent") {
-		console.log("_______LOAD LOCAL STORAGE_____");
-		EmojiList = IconsImporterHandler(current_State);
-	} else {
-		console.log("_____LOAD  " + current_State + "  STATE");
-		EmojiList = IconsImporterHandler(current_State);
-	}
-	if (previous_State === "recent" && current_State != "recent") {
-		console.log("______-SAVE LOCAL STORAGE________");
+		if (data == null) {
+			setOurState({
+				previous_State: current_State,
+				current_State: "recent",
+			});
+		} else {
+			setOurState({
+				previous_State: current_State,
+				current_State: "NOSTATE",
+			});
+			setSearchBuffer(data);
+		}
+
+		console.log("SearchQuery searching for:" + SearchBuffer);
 	}
 
+	console.log("Window currentState is:" + current_State);
 	return (
 		<div className={classes.windowCard}>
 			<div className="container-fluid">
 				<div className={`row ${classes.lightTheme}`}>
 					<IconTab_Interface
 						TabState={tabSelected}
-						IconTabClicked={retrieve_data}
+						IconTabClicked={handle_tabOrder}
 					/>
 				</div>
 				<div className={`row ${classes.lightTheme}`}>
@@ -95,8 +93,9 @@ const Window = (props) => {
 				<div className={`row ${classes.gallerySection}`}>
 					<IconDisplayer
 						emojiPressed={takeEmoji}
-						displayParameters={current_State}
-						handTheList={EmojiList}
+						displayParameters={tabSelected_fromTAB}
+						searchRequest={SearchBuffer}
+						focusTab={handle_ListFocus}
 					/>
 				</div>
 			</div>
