@@ -42,6 +42,9 @@ li {
 
 .categoryHeader {
 	width: 100%;
+	text-align: left;
+	margin-left: 27px;
+	margin-top: 10px;
 }
 .viewStyle {
 	display: contents;
